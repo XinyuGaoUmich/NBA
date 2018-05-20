@@ -1,0 +1,16 @@
+.main {
+    width: 750px;
+    background-color: #ccc;
+    margin: auto;
+    border-radius: 10px;
+    box-shadow: 5px 10px 10px #888;
+    display: flex;
+}
+
+.profile {
+    width: 200px;
+}
+
+.shotchart {
+    flex: 1 1 auto;
+}
