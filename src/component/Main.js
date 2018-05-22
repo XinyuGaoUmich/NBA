@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import nba from 'nba';
 import {Profile} from "./Profile";
+import {ShotChart} from "./ShotChart"
 
 export class Main extends Component {
     state = {
@@ -20,7 +21,9 @@ export class Main extends Component {
         return (
             <div className="main">
                 <Profile playerInfo={this.state.playerInfo}/>
-                <div className="shotchart">ShotChart</div>
+                <ShotChart className="shotchart" playerId={this.state.playerId}
+                minCount={2} displayToolTip={true} chartType={"hexbin"}
+                />
             </div>
         )
     }
