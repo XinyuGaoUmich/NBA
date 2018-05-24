@@ -1,6 +1,7 @@
-import React, { Component } from 'react';
+import React from 'react';
 import { AutoComplete, Icon, Input } from 'antd';
 import nba from 'nba';
+import {PROFILE_PIC_URL_PREFIX } from "../Constants";
 
 const Option = AutoComplete.Option;
 
@@ -15,7 +16,7 @@ export class SearchBar extends React.Component {
             dataSource: !value ? [] :
                nba.searchPlayers(value).map(({playerId, fullName})=>
                    < Option key={playerId} value={fullName}>
-                       <img className="player-option-image" src={`https://ak-static.cms.nba.com/wp-content/uploads/headshots/nba/latest/260x190/${playerId}.png`} />
+                       <img className="player-option-image" src={`${PROFILE_PIC_URL_PREFIX}${playerId}.png`} alt={`${playerId}`}/>
                        <span className="player-option-label" > {fullName}</span>
                    </Option>
                )
@@ -23,9 +24,6 @@ export class SearchBar extends React.Component {
         });
     }
 
-     onSelect = (value) => {
-        console.log('onSelect', value);
-    }
 
     render() {
         window.nba = nba;
@@ -34,7 +32,7 @@ export class SearchBar extends React.Component {
             <AutoComplete
                 dataSource={dataSource}
                 className = "search-bar"
-                onSelect={this.onSelect}
+                onSelect={this.props.loadPlayerInfo}
                 onSearch={this.handleSearch}
                 size="large"
                 placeholder="Search NBA Player"

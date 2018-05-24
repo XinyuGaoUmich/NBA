@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import { PROFILE_PIC_URL_PREFIX, TEAM_PIC_URL_PREFIX } from "../Constants";
 
 export class Profile extends Component {
     render() {
@@ -18,12 +19,12 @@ export class Profile extends Component {
         return (
             <div className="profile">
                 <div className="player-name">{`${playerName}`}</div>
-                <img className="player-pic" src={`https://ak-static.cms.nba.com/wp-content/uploads/headshots/nba/latest/260x190/${playerId}.png`} />
+                <img className="player-pic" src={`${PROFILE_PIC_URL_PREFIX}${playerId}.png`} alt={`${playerName}`}/>
                 <div className="profile-entry">
                     <div className="profile-entry-left">Team</div>
                     <div className="profile-entry-right">{`${teamCity} ${teamName}`}</div>
                 </div>
-                <img className="team-pic" src={`https://stats.nba.com/media/img/teams/logos/season/2017-18/${teamAbbreviation}_logo.svg`} />
+                <img className="team-pic" src={`${TEAM_PIC_URL_PREFIX}${teamAbbreviation}_logo.svg`} alt={`${playerName}`}/>
                 <div className="profile-entry">
                     <div className="profile-entry-left">Height</div>
                     <div className="profile-entry-right">{`${height}`}</div>

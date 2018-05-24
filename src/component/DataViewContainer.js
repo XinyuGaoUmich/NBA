@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import {ShotChart} from "./ShotChart";
 import CountSlider from "./CountSlider";
 import _ from 'lodash';
-import { Radio, Switch, Icon } from 'antd';
+import { Radio, Switch } from 'antd';
 
 
 const RadioGroup = Radio.Group;
